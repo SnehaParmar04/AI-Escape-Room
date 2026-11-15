@@ -1,0 +1,271 @@
+/* THE LOCKED LIBRARY — EDITORIAL EDITION / VERSION 02
+   Visual language: museum field notes, warm archive paper, dark green-black ink,
+   one oxidised-red accent. No neon, no gradients, no template-style cards.
+*/
+:root {
+  --paper: #F5F2EA;
+  --paper-deep: #ECE6DA;
+  --ink: #25312F;
+  --ink-muted: #69716C;
+  --border: #D8D1C4;
+  --accent: #973E31;
+}
+
+html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+}
+
+/* Streamlit chrome: keep the application looking like a single designed page. */
+[data-testid="stHeader"] { background: var(--paper) !important; }
+[data-testid="stDecoration"] { display: none; }
+[data-testid="stToolbar"] { opacity: .55; }
+[data-testid="stMainBlockContainer"], .main .block-container {
+  max-width: 970px !important;
+  padding-top: 2.1rem !important;
+  padding-bottom: 8rem !important;
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+
+/* Sidebar / the archive index. */
+[data-testid="stSidebar"] {
+  background: #EAE5D9 !important;
+  border-right: 1px solid #CCC5B7 !important;
+  min-width: 290px !important;
+}
+[data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
+  padding: 2.6rem 1.35rem 1.2rem 1.5rem !important;
+}
+[data-testid="stSidebar"] p, [data-testid="stSidebar"] div { color: var(--ink); }
+.sidebar-eyebrow, .topline, .hero-rail, .chapter-line,
+.sidebar-section-label, .status-row small, .hero-footer span,
+.victory-eyebrow, .victory-footer {
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+}
+.sidebar-eyebrow {
+  display: flex; justify-content: space-between;
+  color: #77796F !important;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.side-brand-mark {
+  font: italic 62px/1 Georgia, "Times New Roman", serif;
+  color: var(--accent) !important;
+  margin: 1.6rem 0 .7rem;
+}
+.side-brand-title {
+  font: 37px/1.01 Georgia, "Times New Roman", serif;
+  letter-spacing: -.9px;
+  margin-bottom: .7rem;
+}
+.side-subtitle { font: italic 14px Georgia, serif; color: #6D736C !important; }
+.sidebar-rule { border-top: 1px solid var(--border); margin: 2rem 0 1.6rem; }
+.sidebar-section-label { color: #8A4A40 !important; }
+.sidebar-section-label span { float: right; color: #949086; }
+.sidebar-description { font: 15px/1.75 Georgia, serif; margin: .8rem 0 1.5rem; }
+.sidebar-index-title { margin-top: 1.3rem; padding-top: 1.3rem; border-top: 1px solid var(--border); }
+.places { margin: .7rem 0 1.55rem; }
+.places div { display: flex; gap: 1rem; align-items: baseline;
+  font: 14px/1.1 Arial, sans-serif; padding: .55rem 0;
+  border-bottom: 1px solid rgba(103,102,93,.13);
+}
+.places span { font: 10px "Courier New", monospace; color: #9E9A90; }
+.status-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  border-top: 1px solid var(--border); margin-top: .6rem; padding: 1.25rem 0; }
+.status-row div { display: flex; flex-direction: column; gap: .35rem; }
+.status-row small { color: #8B887E; font-size: 9px; }
+.status-row strong { font: 15px/1.2 Arial, sans-serif; letter-spacing: .45px; }
+.sidebar-footnote { margin-top: 1.4rem; font: 11px/1.7 Arial, sans-serif;
+  color: #85887E !important; }
+
+/* Minimal outlined restart control. */
+[data-testid="stSidebar"] .stButton > button {
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--ink) !important;
+  border: 1px solid #A9A89E !important;
+  box-shadow: none !important;
+  font-size: 12px !important;
+  letter-spacing: .2px;
+  min-height: 42px;
+}
+[data-testid="stSidebar"] .stButton > button:hover {
+  background: #DDD7CA !important;
+  border-color: var(--ink) !important;
+}
+
+/* Editorial heading / reading room. */
+.topline { display: flex; justify-content: space-between; color: #7B807A;
+  padding: .4rem 0 1.15rem; border-bottom: 1px solid var(--border);
+}
+.hero-rail { display: flex; justify-content: space-between; margin: 3rem 0 1.2rem;
+  color: var(--accent); }
+.hero-title { font: clamp(3.3rem, 7.2vw, 6.5rem)/.98 Georgia, "Times New Roman", serif;
+  letter-spacing: -3.5px; max-width: 770px; color: var(--ink); }
+.hero-title em { color: var(--accent); font-weight: 400; }
+.hero-lede { font: 19px/1.65 Georgia, serif; max-width: 620px;
+  color: #656D65; margin: 1.7rem 0 2.35rem; }
+.hero-footer { display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--border);
+  padding: 1rem 0 1.25rem; }
+.hero-footer div { display: flex; flex-direction: column; gap: .6rem; }
+.hero-footer span { color: #8B8D83; }
+.hero-footer strong { font: 13px/1.4 Arial, sans-serif; color: var(--ink); font-weight: 500; }
+.chapter-line { display: flex; justify-content: space-between; margin: 3rem 0 1rem;
+  color: #73786F; }
+.chapter-line span:first-child { color: var(--accent); }
+
+/* Readable conversational record, not standard stacked rounded chat bubbles. */
+[data-testid="stChatMessage"] {
+  background: #FDFBF6 !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  padding: 1.1rem 1.2rem !important;
+  margin: .7rem 0 !important;
+  gap: 1rem !important;
+}
+[data-testid="stChatMessage"][data-testid*="user"],
+[data-testid="stChatMessage"][aria-label*="user"] {
+  background: #EEEAE0 !important;
+  border-color: #E3DDD0 !important;
+}
+[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] p,
+[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] li {
+  font: 15px/1.77 Georgia, "Times New Roman", serif;
+  color: #36413B !important;
+}
+[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] p:last-child { margin-bottom: 0; }
+[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] strong { font-weight: 700; }
+[data-testid="stChatMessageAvatarUser"],
+[data-testid="stChatMessageAvatarAssistant"] {
+  background: var(--ink) !important;
+  color: #FBF8F0 !important;
+  border-radius: 0 !important;
+}
+[data-testid="stChatMessageAvatarUser"] { background: #9A8679 !important; }
+
+/* Prompt entry is the only obvious interactive focal point. */
+[data-testid="stChatInput"] {
+  background: var(--paper) !important;
+}
+[data-testid="stChatInput"] > div {
+  border: 1px solid #A8ADA4 !important;
+  border-radius: 3px !important;
+  background: #FFFDF9 !important;
+  box-shadow: 0 8px 32px rgba(30, 38, 33, .06) !important;
+}
+[data-testid="stChatInput"] textarea { color: var(--ink) !important; font-size: 14px !important; }
+[data-testid="stChatInput"] textarea::placeholder { color: #9A9E95 !important; }
+[data-testid="stChatInput"] button { color: var(--accent) !important; }
+
+/* Victory is an end page within the story, not a generic green alert. */
+.victory-banner { background: var(--ink); color: #FAF6ED; margin-top: 1.7rem;
+  padding: clamp(1.5rem, 4vw, 3.2rem); border-top: 5px solid var(--accent); }
+.victory-eyebrow { color: #D8B0A4; }
+.victory-title { font: clamp(2.4rem, 5vw, 4rem)/1.05 Georgia,serif;
+  letter-spacing: -1.8px; margin: 1.8rem 0 1rem; }
+.victory-title em { color: #DEA58C; }
+.victory-banner p { font: 17px/1.7 Georgia, serif; color: #DFE1D6; }
+.victory-footer { display: block; margin-top: 2.2rem; color: #BBBDB4; }
+
+@media (max-width: 780px) {
+  [data-testid="stMainBlockContainer"], .main .block-container {
+    padding: 1.3rem 1.15rem 7rem !important;
+  }
+  .topline span:last-child { display: none; }
+  .hero-rail { margin-top: 1.6rem; }
+  .hero-title { font-size: clamp(3.1rem, 12vw, 5rem); letter-spacing: -1.9px; }
+  .hero-lede { font-size: 17px; margin-bottom: 1.6rem; }
+  .hero-footer { grid-template-columns: 1fr 1fr; }
+  .hero-footer div:last-child { grid-column: 1 / -1; }
+  .chapter-line { margin-top: 2rem; }
+  .chapter-line span:last-child { display: none; }
+  [data-testid="stChatMessage"] { padding: .85rem !important; }
+}
+
+
+/* VERSION 02: structured state, still styled like an archive index. */
+.progress-heading, .lock-heading, .inventory-heading {
+  margin-top: 1.45rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.15rem;
+}
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: var(--ink) !important;
+  font: 12px/1.4 Arial, sans-serif;
+  margin: .75rem 0 .6rem;
+}
+.progress-meta strong { color: var(--accent) !important; font: 13px/1.4 'Courier New', monospace; }
+.progress-track {
+  height: 3px; background: #CCC7BB; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; background: var(--accent); transition: width .2s ease;
+}
+.progress-caption {
+  font: 11px/1.7 Georgia,serif;
+  color: #717870 !important;
+  margin: .7rem 0 0;
+}
+.lock-list { margin-top: .55rem; }
+.lock-entry {
+  display: grid;
+  grid-template-columns: 26px 1fr auto;
+  align-items: baseline;
+  gap: .45rem;
+  border-bottom: 1px solid rgba(103,102,93,.13);
+  padding: .7rem 0;
+}
+.lock-entry span {
+  font: 10px/1.4 'Courier New',monospace;
+  color: #9E9A90 !important;
+}
+.lock-entry .lock-name {
+  font: 13px/1.4 Arial,sans-serif;
+  color: var(--ink) !important;
+}
+.lock-entry strong {
+  font: 10px/1.5 'Courier New',monospace;
+  letter-spacing: .3px;
+  font-weight: 600;
+  color: #787B74 !important;
+}
+.lock-entry.is-done strong { color: var(--accent) !important; }
+.inventory-line {
+  margin: .6rem 0 .35rem;
+  font: 13px/1.6 Arial,sans-serif;
+  color: var(--ink) !important;
+}
+.inventory-line::before { content: '—'; color: var(--accent); margin-right: .6rem; }
+.inventory-empty {
+  margin: .65rem 0 0;
+  font: italic 13px/1.6 Georgia,serif;
+  color: #888D82 !important;
+}
+/* Streamlit's built-in helper messages are not generic bright dashboard boxes. */
+[data-testid="stAlert"] {
+  border: 1px solid var(--border) !important;
+  border-radius: 2px !important;
+  background: #EEE9DE !important;
+  color: var(--ink) !important;
+}
+[data-testid="stAlert"] p { color: var(--ink) !important; }
+[data-testid="stChatMessage"] [data-testid="stCaptionContainer"] p {
+  font: italic 12px/1.7 Georgia,serif !important;
+  color: #717870 !important;
+}
+[data-testid="stChatMessage"] [data-testid="stMarkdownContainer"] code {
+  background: #ECE7DD !important;
+  color: var(--ink) !important;
+}
+@media (max-width: 780px) {
+  .lock-entry { grid-template-columns: 21px 1fr auto; }
+}
